@@ -1,0 +1,41 @@
+@font-face {
+  font-family: Apercu;
+  src: url("./asset/ApercuLight.otf") format('opentype');
+  font-display: swap;
+
+}
+
+@font-face {
+  font-family: ApercuBold;
+  src: url("./asset/Apercu\ Bold.otf");
+  font-display: swap;
+}
+
+body {
+  margin: 0;
+  font-family: Apercu, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 44px;
+  outline: none;
+}
+
+p {
+  font-size: 20px;
+  letter-spacing: 1.1px;
+  line-height: 36px;
+  margin-bottom: 40px;
+}
+
+h2 {
+  font-size: 40px;
+  line-height: 48px;
+  margin-bottom: 25px;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
