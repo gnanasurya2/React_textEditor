@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/React_textEditor/static/css/main.c40c6106.chunk.css",
+    "main.js": "/React_textEditor/static/js/main.8916396c.chunk.js",
+    "main.js.map": "/React_textEditor/static/js/main.8916396c.chunk.js.map",
+    "runtime-main.js": "/React_textEditor/static/js/runtime-main.adb74127.js",
+    "runtime-main.js.map": "/React_textEditor/static/js/runtime-main.adb74127.js.map",
+    "static/js/2.aa882571.chunk.js": "/React_textEditor/static/js/2.aa882571.chunk.js",
+    "static/js/2.aa882571.chunk.js.map": "/React_textEditor/static/js/2.aa882571.chunk.js.map",
+    "index.html": "/React_textEditor/index.html",
+    "precache-manifest.9f9792882fb664a172bd39a417591fa8.js": "/React_textEditor/precache-manifest.9f9792882fb664a172bd39a417591fa8.js",
+    "service-worker.js": "/React_textEditor/service-worker.js",
+    "static/css/main.c40c6106.chunk.css.map": "/React_textEditor/static/css/main.c40c6106.chunk.css.map",
+    "static/js/2.aa882571.chunk.js.LICENSE.txt": "/React_textEditor/static/js/2.aa882571.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/React_textEditor/static/media/ApercuLight.64a8711f.otf"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.adb74127.js",
+    "static/js/2.aa882571.chunk.js",
+    "static/css/main.c40c6106.chunk.css",
+    "static/js/main.8916396c.chunk.js"
+  ]
+}
