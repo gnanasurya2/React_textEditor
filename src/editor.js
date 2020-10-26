@@ -18,6 +18,24 @@ const Title = styled.h1`
   outline: none;
 `;
 
+const Button = styled.button`
+  background-color:blue;
+  border:none;
+  margin-left:20px;
+  margin-top:30px;
+  margin-bottom:30px;
+  padding:8px 24px;
+  border-radius:12px;
+  color:white;
+  cursor:pointer;
+  transition:all 0.2s linear;
+  &:hover {
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+         box-shadow: 0 10px 6px -6px #777;
+  }
+
+`;
 const Author = styled.h3`
   font-size: 20px;
   color: rgba(0, 0, 0, 0.7);
@@ -36,6 +54,9 @@ const Content = styled.div`
 `;
 const Editor = (props) => {
   const content = useRef();
+  const downloadRef = useRef();
+  const titleRef = useRef();
+  const authorRef = useRef();
   useEffect(() => {
     document.execCommand("defaultParagraphSeparator", false, "p");
   }, []);
@@ -64,25 +85,43 @@ const Editor = (props) => {
         }
       }
     }
-    console.log(final);
+    let data = {
+      title : titleRef.current.innerHTML,
+      author: authorRef.current.innerHTML,
+      url:"",
+      content:final
+    }
+    console.log({data});
+    var blob = new Blob([JSON.stringify(data)],{type:"text/json"});
+    console.log(blob);
+    var fileName = titleRef.current.innerHTML.split(" ").join("_")+".json";
+    if(window.navigator.msSaveOrOpenBlob) {
+      window.navigator.msSaveBlob(blob,fileName);
+    } else {
+      var elem = downloadRef.current;
+      elem.href = window.URL.createObjectURL(blob);
+      elem.download = fileName;        
+      elem.click();        
+    }
   };
   const submit = () => {
-    console.log(content.current, []);
+    
     dataExtractor(content.current.childNodes, []);
   };
   return (
     <Wrapper>
-      <Title id="title" contentEditable="true" data-placeholder="Title"></Title>
-      <Author contentEditable="true"></Author>
-      <button onClick={() => setHeader(2)}>h2</button>
-      <button onClick={() => setHeader(3)}>h3</button>
-      <button onClick={() => setHeader(4)}>h4</button>
-      <button onClick={() => submit()}>Submit</button>
+      <Title id="title" ref={titleRef} contentEditable="true" data-placeholder="Title" ></Title>
+      <Author contentEditable="true" ref={authorRef}></Author>
+      <Button onClick={() => setHeader(2)}>h2</Button>
+      <Button onClick={() => setHeader(3)}>h3</Button>
+      <Button onClick={() => setHeader(4)}>h4</Button>
+      <Button onClick={() => submit()}>Submit</Button>
       <Content
         contentEditable
         data-placeholder="Content"
         ref={content}
       ></Content>
+      <a ref={downloadRef} style={{display:"none"}}></a>
     </Wrapper>
   );
 };
